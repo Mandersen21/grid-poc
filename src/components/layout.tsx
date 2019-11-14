@@ -14,13 +14,15 @@ const Layout = ({ children }) => {
   return (
     <>
       <Container>
-        <Column m={12}>
+        <Column m={8}>
           <Box></Box>
         </Column>
         <Column>
           <Box></Box>
         </Column>
-        <Column>
+      </Container>
+      <Container>
+      <Column m={10}>
           <Box></Box>
         </Column>
         <Column>
