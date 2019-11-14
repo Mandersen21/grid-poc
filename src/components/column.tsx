@@ -15,14 +15,16 @@ const Column = (props: Props) => {
         <>
         <Grid 
             item 
-            {...props.m ? { md: props.m } : { md: false }}
-            {...props.l ? { lg: props.l } : { lg: false }}
-            {...props.xl ? { xl: props.xl } : { xl: false }}
-            {...!props.m && !props.l && !props.xl && !props.xxl ? { xs: true } : { xs: false } }>
+            xs={12}
+            sm={12}
+            {...props.m ? { md: props.m } : { md: 6 }}
+            {...props.l ? { lg: props.l } : { lg: 4 }}
+            {...props.xl ? { xl: props.xl } : { xl: 3 }}>
             {props.children}
         </Grid>
         </>
     )
 }
+//{...!props.m && !props.l && !props.xl && !props.xxl ? { xs: 12, sm: 12 } : { xs: false, sm: false } }
 
 export default Column
