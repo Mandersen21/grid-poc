@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-
+import styled from "@emotion/styled"
 import Container from "@material-ui/core/Container"
 import Grid from "@material-ui/core/Grid"
 
@@ -21,7 +21,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Container>
-        <Grid container>
+        <Grid container spacing={2}>
           <Grid item sm={4}>
             <Box></Box>
           </Grid>
@@ -35,10 +35,6 @@ const Layout = ({ children }) => {
       </Container>
     </>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout
