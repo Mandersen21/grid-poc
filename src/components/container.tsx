@@ -17,14 +17,15 @@ const breakPointValues = {
 }
 
 const theme = createMuiTheme({
-    breakpoints: { values: breakPointValues }
+    breakpoints: { values: breakPointValues },
+    spacing: 6,
 })
 
 const Container = (props: Props) => {
     return (
         <ThemeProvider theme={theme}>
             <Container_ {...props.fluid ? { maxWidth: false } : { fixed: true }}>
-                <Grid container>
+                <Grid container spacing={4}>
                     {props.children}
                 </Grid>
             </Container_>
