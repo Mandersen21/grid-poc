@@ -37,6 +37,7 @@ const Layout = ({ children }) => {
 
       <div className="viewport-viewer">
       <p>
+      <div className="xxl hidden">Viewport: XXL</div>
         <div className="xl hidden">Viewport: XL</div>
         <div className="l hidden">Viewport: L</div>
         <div className="s hidden">Viewport: S</div>

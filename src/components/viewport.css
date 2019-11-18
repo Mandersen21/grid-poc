@@ -7,25 +7,31 @@
     font-family: DFDS;
 }
 
-@media only screen and (min-width: 1920px) {
+@media only screen and (min-width: 1360px) {
+    .xxl {
+        display: initial !important;
+    }
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1359px) {
     .xl {
         display: initial !important;
     }
 }
 
-@media only screen and (min-width: 1280px) and (max-width: 1920px) {
+@media only screen and (min-width: 1025px) and (max-width: 1279px) {
     .l {
         display: initial !important;
     }
 }
 
-@media only screen and (min-width: 960px) and (max-width: 1280px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
     .m {
         display: initial !important;
     }
 }
 
-@media only screen and (max-width: 960px) {
+@media only screen and (max-width: 767px) {
     .s {
         display: initial !important;
     }

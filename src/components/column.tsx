@@ -17,7 +17,7 @@ const Column = (props: Props) => {
             item 
             xs={12}
             sm={12}
-            {...props.m ? { md: props.m } : { md: 6 }}
+            {...props.m ? { md: props.m } : { md: true }}
             {...props.l ? { lg: props.l } : { lg: true }}
             {...props.xl ? { xl: props.xl } : { xl: true }}>
             {props.children}
