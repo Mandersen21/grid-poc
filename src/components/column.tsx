@@ -17,7 +17,7 @@ const Column = (props: Props) => {
             item 
             xs={12}
             sm={12}
-            {...props.m ? { md: props.m } : { md: true }}
+            {...props.m ? { md: props.m } : { md: 6 }}
             {...props.l ? { lg: props.l } : { lg: true }}
             {...props.xl ? { xl: props.xl } : { xl: true }}>
             {props.children}
@@ -25,6 +25,5 @@ const Column = (props: Props) => {
         </>
     )
 }
-//{...!props.m && !props.l && !props.xl && !props.xxl ? { xs: 12, sm: 12 } : { xs: false, sm: false } }
 
 export default Column

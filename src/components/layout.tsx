@@ -3,6 +3,8 @@ import styled from "@emotion/styled"
 import Container from "./container"
 import Column from "./column"
 
+import './viewport.css'
+
 const Box = styled.div`
   height: 100px;
   background-color: #efefef;
@@ -14,7 +16,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <Container>
-        <Column m={8}>
+        <Column>
+          <Box></Box>
+        </Column>
+        <Column>
           <Box></Box>
         </Column>
         <Column>
@@ -29,6 +34,15 @@ const Layout = ({ children }) => {
           <Box></Box>
         </Column>
       </Container>
+
+      <div className="viewport-viewer">
+      <p>
+        <div className="xl hidden">Viewport: XL</div>
+        <div className="l hidden">Viewport: L</div>
+        <div className="s hidden">Viewport: S</div>
+        <div className="m hidden">Viewport: M</div>
+      </p>
+    </div>
     </>
   )
 }
