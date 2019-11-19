@@ -8,9 +8,9 @@ const Box = styled.div`
   border: dotted 1.5px black;
 `
 
-const GridPage = () => {
+const MaterialGridPage = () => {
     
-    let xSmall: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | boolean | 'auto' = 6
+    let xSmall: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | boolean | 'auto' = true
 
     return (
     <>
@@ -61,4 +61,4 @@ const GridPage = () => {
     )
 }
 
-export default GridPage
+export default MaterialGridPage
