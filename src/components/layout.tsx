@@ -16,22 +16,44 @@ const Layout = ({ children }) => {
   return (
     <>
       <Container>
-        <Column>
-          <Box></Box>
+        <Column xxl={12}>
+          <Box>1</Box>
         </Column>
         <Column>
-          <Box></Box>
+          <Box>2</Box>
         </Column>
         <Column>
-          <Box></Box>
-        </Column>
-      </Container>
-      <Container>
-      <Column m={10}>
-          <Box></Box>
+          <Box>3</Box>
         </Column>
         <Column>
-          <Box></Box>
+          <Box>4</Box>
+        </Column>
+        <Column>
+          <Box>5</Box>
+        </Column>
+        <Column>
+          <Box>6</Box>
+        </Column>
+        <Column>
+          <Box>7</Box>
+        </Column>
+        <Column>
+          <Box>8</Box>
+        </Column>
+        <Column>
+          <Box>9</Box>
+        </Column>
+        <Column>
+          <Box>10</Box>
+        </Column>
+        <Column>
+          <Box>11</Box>
+        </Column>
+        <Column>
+          <Box>12</Box>
+        </Column>
+        <Column>
+          <Box>13</Box>
         </Column>
       </Container>
 

@@ -1,5 +1,5 @@
 .viewport-viewer {
-    position: absolute;
+    position: fixed;
     right: 2rem;
     bottom: 1rem;
 
