@@ -8,18 +8,22 @@ import './viewport.css'
 const Box = styled.div`
   height: 100px;
   background-color: #efefef;
-  border: dotted 1.5px black;
+  display: flex;
+  font-size: 16px;
+  font-family: 'DFDS';
+  align-items: center;
+  justify-content: center;
 `
 
 const Layout = ({ children }) => {
 
   return (
     <>
-      <Container>
-        <Column m={10}>
+      <Container fluid={false}>
+        <Column>
           <Box>1</Box>
         </Column>
-        <Column m={2}>
+        <Column>
           <Box>2</Box>
         </Column>
         <Column>
@@ -52,20 +56,18 @@ const Layout = ({ children }) => {
         <Column>
           <Box>12</Box>
         </Column>
-        {/* <Column>
+        <Column>
           <Box>13</Box>
-        </Column> */}
+        </Column>
       </Container>
 
       <div className="viewport-viewer">
-      <p>
-      <div className="xxl hidden">Viewport: XXL</div>
+        <div className="xxl hidden">Viewport: XXL</div>
         <div className="xl hidden">Viewport: XL</div>
         <div className="l hidden">Viewport: L</div>
         <div className="s hidden">Viewport: S</div>
         <div className="m hidden">Viewport: M</div>
-      </p>
-    </div>
+      </div>
     </>
   )
 }

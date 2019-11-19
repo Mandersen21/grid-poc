@@ -1,7 +1,8 @@
 import React from "react"
 
 import { Container as Container_, Grid } from '@material-ui/core'
-import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles"
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles"
+import styled from "@emotion/styled"
 
 type Props = {
     children?: React.ReactNode
@@ -21,15 +22,43 @@ const theme = createMuiTheme({
     spacing: 6,
 })
 
+type ContainerProp = {
+    fluid: boolean
+}
+
+const ContainerStyled = styled(Container_) <ContainerProp>`
+    @media (max-width: 767px) {
+        max-width: none;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+        div {
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+    }
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+        max-width: none;
+        ${props => props.fluid ? '' : 'padding-left: 40px'}; 
+        ${props => props.fluid ? '' : 'padding-right: 40px'};
+    }
+    
+    @media (min-width: 1280px) {
+        ${props => props.fluid ? '' : 'max-width: 1200px'};
+    }
+`
+
 const Container = (props: Props) => {
+
     return (
-        <ThemeProvider theme={theme}>
-            <Container_ {...props.fluid ? { maxWidth: false } : { fixed: true }}>
+        <MuiThemeProvider theme={theme}>
+            <ContainerStyled fluid={props.fluid} {...props.fluid ? { maxWidth: false } : { fixed: false }}>
                 <Grid container spacing={4}>
                     {props.children}
                 </Grid>
-            </Container_>
-        </ThemeProvider>
+            </ContainerStyled>
+        </MuiThemeProvider>
     )
 }
 

@@ -14,6 +14,10 @@ const Column = (props: Props) => {
 
     const getXXtraLarge = () => {
         if (props.xxl) return props.xxl
+        else if (props.xl) return props.xl
+        else if (props.l) return props.l
+        else if (props.m) return props.m
+        else return true
     }
 
     const getXtraLarge = () => {
@@ -50,18 +54,3 @@ const Column = (props: Props) => {
 }
 
 export default Column
-
-                // xs={true}
-                // sm={props.m} // Medium
-                // md={props.l} // Large
-                // lg={props.xl} // Xlarge
-                // xl={props.xxl} // XXlarge
-                // lg={true}
-                // xs={12}
-                // sm={ props.m || 6}
-                // md={ props.l}
-                // xs={12}
-                // {...props.m ? { sm: props.m } : { sm: false }} // Medium
-                // {...props.l ? { md: props.l } : { md: false }} // Large
-                // {...props.xl ? { lg: props.xl } : { lg: false }} // X-large
-                // {...props.xxl ? { xl: props.xxl } : { xl: false }} // XX-large
