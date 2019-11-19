@@ -16,10 +16,10 @@ const Layout = ({ children }) => {
   return (
     <>
       <Container>
-        <Column xxl={12}>
+        <Column m={10}>
           <Box>1</Box>
         </Column>
-        <Column>
+        <Column m={2}>
           <Box>2</Box>
         </Column>
         <Column>
@@ -52,9 +52,9 @@ const Layout = ({ children }) => {
         <Column>
           <Box>12</Box>
         </Column>
-        <Column>
+        {/* <Column>
           <Box>13</Box>
-        </Column>
+        </Column> */}
       </Container>
 
       <div className="viewport-viewer">
