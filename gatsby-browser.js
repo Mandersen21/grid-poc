@@ -7,7 +7,7 @@ import { BaseCSS } from 'styled-bootstrap-grid';
 export const wrapRootElement = ({ element }) => {
     return (
         <>
-            {/* <BaseCSS /> */}
+            <BaseCSS />
             {element}
         </>
     )
