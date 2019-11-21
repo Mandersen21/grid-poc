@@ -1,8 +1,9 @@
 import React from "react"
 
 import { Container as Container_, Grid } from '@material-ui/core'
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles"
+import { MuiThemeProvider, createMuiTheme, createStyles } from "@material-ui/core/styles"
 import styled from "@emotion/styled"
+import { maxWidth } from "@material-ui/system"
 
 type Props = {
     children?: React.ReactNode
@@ -23,9 +24,17 @@ const theme = createMuiTheme({
     overrides: ({
         MuiContainer: ({
             root: {
-                // paddingLeft: "0px",
-                // paddingRight: "0px",
+                
             },
+            maxWidthMd: ({
+                maxWidth: "1200px !important"
+            }),
+            maxWidthXl: ({
+                maxWidth: "1200px !important"
+            }),
+            maxWidthLg: ({
+                maxWidth: "1200px !important"
+            })
         })
     })
 })
@@ -61,11 +70,11 @@ const Container = (props: Props) => {
 
     return (
         <MuiThemeProvider theme={theme}>
-            <ContainerStyled fluid={props.fluid} {...props.fluid ? { maxWidth: false } : { fixed: false }}>
+            <Container_ {...props.fluid ? { maxWidth: false } : { }}>
                 <Grid container spacing={6}>
                     {props.children}
                 </Grid>
-            </ContainerStyled>
+            </Container_>
         </MuiThemeProvider>
     )
 }
