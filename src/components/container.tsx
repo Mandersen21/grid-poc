@@ -19,23 +19,31 @@ const breakPointValues = {
 
 const theme = createMuiTheme({
     breakpoints: { values: breakPointValues },
-    spacing: 6,
+    
+    overrides: ({
+        MuiContainer: ({
+            root: {
+                // paddingLeft: "0px",
+                // paddingRight: "0px",
+            },
+        })
+    })
 })
 
 type ContainerProp = {
     fluid: boolean
 }
 
-const ContainerStyled = styled(Container_) <ContainerProp>`
+const ContainerStyled = styled(Container_)<ContainerProp>`
     @media (max-width: 767px) {
         max-width: none;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+        /* padding-left: 0;
+        padding-right: 0; */
 
-        div {
-            padding-left: 0 !important;
-            padding-right: 0 !important;
-        }
+        /* div {
+            padding-left: 0;
+            padding-right: 0;
+        } */
     }
 
     @media (min-width: 768px) and (max-width: 1279px) {
@@ -45,7 +53,7 @@ const ContainerStyled = styled(Container_) <ContainerProp>`
     }
     
     @media (min-width: 1280px) {
-        ${props => props.fluid ? '' : 'max-width: 1200px'};
+        ${props => props.fluid ? 'max-width: none' : 'max-width: 1200px'};
     }
 `
 
@@ -54,7 +62,7 @@ const Container = (props: Props) => {
     return (
         <MuiThemeProvider theme={theme}>
             <ContainerStyled fluid={props.fluid} {...props.fluid ? { maxWidth: false } : { fixed: false }}>
-                <Grid container spacing={4}>
+                <Grid container spacing={6}>
                     {props.children}
                 </Grid>
             </ContainerStyled>
