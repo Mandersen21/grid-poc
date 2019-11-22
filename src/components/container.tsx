@@ -23,12 +23,11 @@ const breakpoints = createBreakpoints({
 
 const theme = createMuiTheme({
     breakpoints: breakpoints,
-    spacing: 4,
 
     overrides: ({
         MuiContainer: ({
             root: {
-                marginBottom: "16px",
+                marginBottom: "8px",
 
                 [breakpoints.only('xs')]: {
                     paddingLeft: "0px",
@@ -47,6 +46,12 @@ const theme = createMuiTheme({
                     paddingRight: "0px"
                 },
             },
+            maxWidthXs: ({
+                [breakpoints.only('xs')]: {
+                    maxWidth: "none",
+                    marginTop: "-8px"
+                }
+            }),
             maxWidthMd: ({
                 [breakpoints.down('md')]: {
                     maxWidth: "none"
@@ -57,16 +62,24 @@ const theme = createMuiTheme({
                     maxWidth: "1200px"
                 }
             }),
-        })
+        }),
+        MuiGrid: ({
+            item: {
+                paddingTop: "8px",
+                paddingBottom: "8px"
+            }
+        }),
     })
 })
 
 const Container = (props: Props) => {
     const { maxWidth_ } = useMedia(
-        ['(max-width: 1279px)',
+        ['(max-width: 767px)',
+            '(max-width: 1279px and min-width: 768px)',
             '(min-width: 1280px)'],
         [
-            { maxWidth_: "md" }, // Medium
+            { maxWidth_: "xs" }, // Mobile
+            { maxWidth_: "md" }, // Large
             { maxWidth_: "lg" }, // X-large and up
         ],
         { maxWidth_: "xl" },
@@ -75,7 +88,7 @@ const Container = (props: Props) => {
     return (
         <MuiThemeProvider theme={theme}>
             <Container_  {...props.fluid ? { maxWidth: false } : { maxWidth: maxWidth_ }}>
-                <Grid container spacing={8}>
+                <Grid container spacing={maxWidth_ == "xs" ? 0 : 2}>
                     {props.children}
                 </Grid>
             </Container_>
