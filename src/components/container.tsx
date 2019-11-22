@@ -23,10 +23,29 @@ const breakpoints = createBreakpoints({})
 
 const theme = createMuiTheme({
     breakpoints: { values: breakPointValues },
+    spacing: 4,
 
     overrides: ({
         MuiContainer: ({
             root: {
+                marginTop: "32px",
+
+                [breakpoints.only('xs')]: {
+                    paddingLeft: "0px",
+                    paddingRight: "0px"
+                },
+                [breakpoints.only('sm')]: {
+                    paddingLeft: "40px",
+                    paddingRight: "40px"
+                },
+                [breakpoints.only('md')]: {
+                    paddingLeft: "40px",
+                    paddingRight: "40px"
+                },
+                [breakpoints.up('lg')]: {
+                    paddingLeft: "0px",
+                    paddingRight: "0px"
+                },
             },
             maxWidthMd: ({
                 [breakpoints.down('md')]: {
@@ -56,7 +75,7 @@ const Container = (props: Props) => {
     return (
         <MuiThemeProvider theme={theme}>
             <Container_  {...props.fluid ? { maxWidth: false } : { maxWidth: maxWidth_ }}>
-                <Grid container spacing={6}>
+                <Grid container spacing={8}>
                     {props.children}
                 </Grid>
             </Container_>

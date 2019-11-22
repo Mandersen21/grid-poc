@@ -20,11 +20,17 @@ const Layout = ({ children }) => {
   return (
     <>
       <Container>
-        <Column>
+        <Column m={6}>
           <Box>1</Box>
         </Column>
-        <Column>
+        <Column m={6}>
           <Box>2</Box>
+        </Column>
+        <Column m={6}>
+          <Box>3</Box>
+        </Column>
+        <Column m={6}>
+          <Box>4</Box>
         </Column>
       </Container>
 
