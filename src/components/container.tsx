@@ -1,8 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { Container as Container_, Grid } from '@material-ui/core'
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles"
 import styled from "@emotion/styled"
+import createBreakpoints from "@material-ui/core/styles/createBreakpoints"
+import useMedia from "./useMedia"
 
 type Props = {
     children?: React.ReactNode
@@ -17,55 +19,47 @@ const breakPointValues = {
     xl: 1360, // xx-large
 }
 
+const breakpoints = createBreakpoints({})
+
 const theme = createMuiTheme({
     breakpoints: { values: breakPointValues },
-    
+
     overrides: ({
         MuiContainer: ({
             root: {
-                // paddingLeft: "0px",
-                // paddingRight: "0px",
             },
+            maxWidthMd: ({
+                [breakpoints.down('md')]: {
+                    maxWidth: "none"
+                }
+            }),
+            maxWidthLg: ({
+                [breakpoints.up('lg')]: {
+                    maxWidth: "1200px"
+                }
+            }),
         })
     })
 })
 
-type ContainerProp = {
-    fluid: boolean
-}
-
-const ContainerStyled = styled(Container_)<ContainerProp>`
-    @media (max-width: 767px) {
-        max-width: none;
-        /* padding-left: 0;
-        padding-right: 0; */
-
-        /* div {
-            padding-left: 0;
-            padding-right: 0;
-        } */
-    }
-
-    @media (min-width: 768px) and (max-width: 1279px) {
-        max-width: none;
-        ${props => props.fluid ? '' : 'padding-left: 40px'}; 
-        ${props => props.fluid ? '' : 'padding-right: 40px'};
-    }
-    
-    @media (min-width: 1280px) {
-        ${props => props.fluid ? 'max-width: none' : 'max-width: 1200px'};
-    }
-`
-
 const Container = (props: Props) => {
+    const { maxWidth_ } = useMedia(
+        ['(max-width: 1279px)',
+            '(min-width: 1280px)'],
+        [
+            { maxWidth_: "md" }, // Medium
+            { maxWidth_: "lg" }, // X-large and up
+        ],
+        { maxWidth_: "xl" },
+    )
 
     return (
         <MuiThemeProvider theme={theme}>
-            <ContainerStyled fluid={props.fluid} {...props.fluid ? { maxWidth: false } : { fixed: false }}>
+            <Container_  {...props.fluid ? { maxWidth: false } : { maxWidth: maxWidth_ }}>
                 <Grid container spacing={6}>
                     {props.children}
                 </Grid>
-            </ContainerStyled>
+            </Container_>
         </MuiThemeProvider>
     )
 }
