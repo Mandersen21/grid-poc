@@ -11,24 +11,24 @@ type Props = {
     fluid?: boolean
 }
 
-const breakPointValues = {
-    xs: 0,
-    sm: 768, // medium
-    md: 1025, // large
-    lg: 1280, // x-large
-    xl: 1360, // xx-large
-}
-
-const breakpoints = createBreakpoints({})
+const breakpoints = createBreakpoints({
+    values: {
+        xs: 0,
+        sm: 768,
+        md: 1025,
+        lg: 1280,
+        xl: 1360,
+      },
+})
 
 const theme = createMuiTheme({
-    breakpoints: { values: breakPointValues },
+    breakpoints: breakpoints,
     spacing: 4,
 
     overrides: ({
         MuiContainer: ({
             root: {
-                marginTop: "32px",
+                marginBottom: "16px",
 
                 [breakpoints.only('xs')]: {
                     paddingLeft: "0px",

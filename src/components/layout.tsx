@@ -21,16 +21,25 @@ const Layout = ({ children }) => {
     <>
       <Container>
         <Column m={6}>
-          <Box>1</Box>
+          <Box>First container - 1</Box>
         </Column>
         <Column m={6}>
-          <Box>2</Box>
+          <Box>First container - 2</Box>
         </Column>
         <Column m={6}>
-          <Box>3</Box>
+          <Box>First container - 3</Box>
         </Column>
         <Column m={6}>
-          <Box>4</Box>
+          <Box>First container - 4</Box>
+        </Column>
+      </Container>
+
+      <Container>
+        <Column m={12}>
+          <Box>Second container - 1</Box>
+        </Column>
+        <Column m={12}>
+          <Box>Second container - 2</Box>
         </Column>
       </Container>
 
